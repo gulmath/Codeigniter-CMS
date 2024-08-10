@@ -10,11 +10,13 @@
 					<p class="m-b-lg docs">
 						Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.
 					</p>-->
+                    <?php if (empty($items)) { ?>
                     <div class="alert alert-info  alert-dismissible text-center">
 								
 								<!--<h5 class="alert-title">Kayıt Bulunamadı</h5>-->
 								<p>Burada herhangi bir veri bulunmamaktadır. Eklemek için Yeni Ekle butonuna tıklayın...</p>
 							</div>
+                            <?php } else { ?>
 					<table class="table table-hover table-striped">
 						<thead>
                             <th>#id</th>
@@ -25,14 +27,18 @@
                             <th>İşlem</th>
                         </thead>   
                         <tbody>
+                         <?php foreach ($items as $item) {?>   
                         <tr>    
-                            <td>#1</td>
-                            <td>monitor-askisi</td>
-                            <td>Monitör Askısı</td>
-                            <td>360 derece Kullanılabilen monitör askısı</td>
+                            <td><?php echo $item->id;?></td>
+                            <td><?php echo $item->url;?></td>
+                            <td><?php echo $item->title;?></td>
+                            <td><?php echo $item->description;?></td>
                             <td>
 								
-                                <input id="switch-2-2" type="checkbox" data-switchery data-color="#10c469" checked />
+                                <input id="switch-2-2" type="checkbox" 
+                                data-switchery data-color="#10c469" 
+                                <?php echo ($item->isActive) ? "checked": "";?>
+                                 />
 						</td>
                             <td>
                                
@@ -40,10 +46,10 @@
                                 <a href="#" type="button" class="btn btn-sm btn-info btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</>
                             </td>
                         </tr>
-                        
+                        <?php }?>
                            
                         </tbody>
-					</table>
+					</table> <?php }?>
 				</div><!-- .widget -->
 			</div><!-- END column -->
 </div>
