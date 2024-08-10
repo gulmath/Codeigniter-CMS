@@ -43,7 +43,7 @@
                     </a>
                 </li>
 
-
+<!--  Burası kullanıcı bilgilerini içeren yerler... bu dosya kul_notifications.php dosyasına alındı -->
             </ul>
         </div>
     </div><!-- navbar-container -->
