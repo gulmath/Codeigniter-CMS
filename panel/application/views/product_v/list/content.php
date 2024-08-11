@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <h4 class="m-b-lg">Ürünler Listesi
-            <a href="#" class="btn btn-outline btn-primary btn-xs pull-right"> <i class="fa fa-plus"></i>Yeni Ekle</a>
+            <a href="<?php echo base_url('product/new_form'); ?>" class="btn btn-outline btn-primary btn-xs pull-right"> <i class="fa fa-plus"></i>Yeni Ekle</a>
         </h4>
     </div>
 <div class="col-md-12">
