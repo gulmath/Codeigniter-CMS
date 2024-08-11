@@ -14,6 +14,10 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">Ürün Adı</label>
 								<input name="title" type="text" class="form-control" id="title" placeholder="title">
+                               <?php if (isset($form_error)) { ?>
+                                <small class="pull-right input-form-error"><?php echo form_error("title");?> </small>
+                                <?php }?>
+
 							</div>
 							<div class="form-group">
                                 <label for="exampleInputEmail1">Açıklama</label>
