@@ -43,7 +43,7 @@
                             <td>
                                
                                 <a href="#" type="button" class="btn btn-sm btn-danger btn-outline"><i class="fa fa-trash"></i> Sil </>
-                                <a href="#" type="button" class="btn btn-sm btn-info btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</>
+                                <a href="<?php echo base_url("product/update_form/$item->id");?>" type="button" class="btn btn-sm btn-info btn-outline"><i class="fa fa-pencil-square-o"></i> Düzenle</>
                             </td>
                         </tr>
                         <?php }?>

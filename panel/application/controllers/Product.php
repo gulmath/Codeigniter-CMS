@@ -64,10 +64,13 @@ class Product extends CI_Controller {
 							
 							)
 						);
+						//TODO alert sistemi eklenecek
 						if ($insert){
-								echo "Kayıt Başarılı....";
+								//echo "Kayıt Başarılı....";
+								redirect(base_url("product"));
 						} else {
-							echo "Kayıt Hatalı.....";
+							//echo "Kayıt Hatalı.....";
+							redirect(base_url("product"));
 						}
 
 		   } else {
@@ -82,5 +85,20 @@ class Product extends CI_Controller {
 		   }
         
     }
+
+	public function update_form($id){
+
+		$viewData = new StdClass();
+		$viewData->viewFolder =$this->viewFolder;
+
+		/**Veritabanından verilerin getirilmesi */
+		$item=$this->product_model->get(array ("id" =>$id));
+		//print_r($item);
+		//die();
+		$viewData->subviewFolder="update";
+		$viewData->item=$item;
+		$this->load->view("{$viewData->viewFolder}/$viewData->subviewFolder/index",$viewData);
+
+	}
 
 }
