@@ -13,7 +13,7 @@
 						<form action="<?php echo base_url("product/save")?>" method="post">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Ürün Adı</label>
-								<input type="text" class="form-control" id="title" placeholder="title">
+								<input name="title" type="text" class="form-control" id="title" placeholder="title">
 							</div>
 							<div class="form-group">
                                 <label for="exampleInputEmail1">Açıklama</label>
