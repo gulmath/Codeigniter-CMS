@@ -9,12 +9,13 @@ class Product extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->viewFolder ="product_v";
+		$this->load->model("product_model");
 
 		
 	}
 	public function index()
 	{
-		$this->load->model("product_model");
+		
 		$viewData = new StdClass();
 		
 		/**Veritabanından verilerin getirilmesi */
@@ -48,7 +49,26 @@ class Product extends CI_Controller {
 		   //Kayıt işlemi başlar
 		   //Hata ekranda gösterilir...
 		   if ($validate){
-			echo "Kayıt İşlemleri Başlar";
+			//echo "Kayıt İşlemleri Başlar";
+			
+
+						$insert = $this->product_model->add(
+							array(
+								"title"			=>$this->input->post("title"),
+								"description"	=>$this->input->post("description"),
+								"url"			=>"test",
+								"rank"			=>0,
+								"isActive"		=>1,
+								"createdAt"		=>date("Y-m-d H:i:s")
+							
+							)
+						);
+						if ($insert){
+								echo "Kayıt Başarılı....";
+						} else {
+							echo "Kayıt Hatalı.....";
+						}
+
 		   } else {
 				$viewData = new StdClass();
 				$viewData->viewFolder =$this->viewFolder;
