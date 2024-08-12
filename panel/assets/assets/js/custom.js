@@ -22,6 +22,17 @@ $(document).ready(function(){
 
 
     });
-   
+   $(".isActive").change(function(e){
+     // alert($(this).prop("checked"));
+     var $data=$(this).prop("checked");
+     var $data_url=$(this).data("url");
+
+     if (typeof $data !== undefined && typeof $data_url !== undefined){
+        $.post($data_url,{data:$data},function(response){
+         //   alert(response);
+        });
+     }
+
+   });
 
 });

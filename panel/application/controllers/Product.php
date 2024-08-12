@@ -163,4 +163,24 @@ class Product extends CI_Controller {
         
     }
 
+	public function isActiveSetter($id){
+
+		if ($id) {
+			//echo $id;
+			
+			$isActive=($this->input->post("data")=="true"? 1: 0);
+			//echo $isActive;
+			$update = $this->product_model->update(
+				array("id"  => $id),
+				array(
+					"isActive"			=>$isActive
+				)
+			);
+		
+		
+		}
+
+		
+	}
+
 }
