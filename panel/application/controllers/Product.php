@@ -149,5 +149,18 @@ class Product extends CI_Controller {
 		   }
         
     }
+	public function delete_form($id){
+		
+		   $delete = $this->product_model->delete(array("id"  => $id));
+						//TODO alert sistemi eklenecek
+						if ($delete){
+								//echo "Silme Başarılı....";
+								redirect(base_url("product"));
+						} else {
+							//echo "Silme Hatalı.....";
+							redirect(base_url("product"));
+						}
+        
+    }
 
 }
