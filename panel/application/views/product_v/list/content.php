@@ -21,8 +21,9 @@
 						<thead>
                             <th><i class="fa fa-reorder"></i></th>
                             <th>#id</th>
-                            <th>url</th>
                             <th>Ürün Adı</th>
+                            <th>url</th>
+                            
                             <th>Açıklama</th>
                             <th>Durumu</th>
                             <th>İşlem</th>
@@ -32,8 +33,9 @@
                         <tr  id="ord-<?php echo $item->id; ?>" >    
                         <td><i class="fa fa-reorder"></i></td>
                             <td><?php echo $item->id;?></td>
-                            <td><?php echo $item->url;?></td>
                             <td><?php echo $item->title;?></td>
+                            <td><?php echo $item->url;?></td>
+                            
                             <td><?php echo $item->description;?></td>
                             <td>
 								
