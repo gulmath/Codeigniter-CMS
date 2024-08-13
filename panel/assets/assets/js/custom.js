@@ -1,4 +1,7 @@
 $(document).ready(function(){
+   
+    $(".sortable").sortable();
+   
     $(".remove-btn").click(function(e){
       //  e.preventDefault();  //href ile belirtilen yere gitmesini engeller...
        var $data_url=$(this).data("url");
@@ -22,6 +25,7 @@ $(document).ready(function(){
 
 
     });
+
    $(".isActive").change(function(e){
      // alert($(this).prop("checked"));
      var $data=$(this).prop("checked");
@@ -34,5 +38,20 @@ $(document).ready(function(){
      }
 
    });
+
+
+
+   $(".sortable").on("sortupdate",function(event,ui){
+        //alert();
+        var $data =$(this).sortable("serialize");  //oluşturluna verinin urlsi ni getir
+       // alert($data);  //ord[]=1&ord[]=2&ord[]=6&ord[]=3
+       var $data_url=$(this).data("url");
+       //alert($data_url);
+       $.post($data_url, {data: $data}, function(response){
+           // alert(response);
+
+       });
+   });
+ 
 
 });
