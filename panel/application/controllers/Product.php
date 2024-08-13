@@ -213,13 +213,27 @@ class Product extends CI_Controller {
 		$viewData->viewFolder =$this->viewFolder;
 
 		/**Veritabanından verilerin getirilmesi */
-		//$item=$this->product_model->get(array ("id" =>$id));
+		$item=$this->product_model->get(array ("id" =>$id));
 		//print_r($item);
 		//die();
 		$viewData->subviewFolder="image";
-		//$viewData->item=$item;
+		$viewData->item=$item;
 		$this->load->view("{$viewData->viewFolder}/$viewData->subviewFolder/index",$viewData);
 
+	}
+	public function image_upload(){
+		$config["allowed_types"]="jpg|jpeg|png";
+		$config["upload_path"]="uploads/$this->viewFolder/";
+
+		$this->load->library("upload", $config);
+
+		$upload =$this->upload->do_upload("file");
+
+		if ($upload){
+			echo "İşlem Başarılı";
+		} else {
+			echo "İşlem Başarısız.";
+		}
 	}
 
 }
