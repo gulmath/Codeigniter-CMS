@@ -207,4 +207,19 @@ class Product extends CI_Controller {
 	
 	}
 
+	public function image_form($id){
+
+		$viewData = new StdClass();
+		$viewData->viewFolder =$this->viewFolder;
+
+		/**Veritabanından verilerin getirilmesi */
+		//$item=$this->product_model->get(array ("id" =>$id));
+		//print_r($item);
+		//die();
+		$viewData->subviewFolder="image";
+		//$viewData->item=$item;
+		$this->load->view("{$viewData->viewFolder}/$viewData->subviewFolder/index",$viewData);
+
+	}
+
 }
